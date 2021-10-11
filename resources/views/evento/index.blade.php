@@ -16,7 +16,7 @@ use DateTime;
   <tr>
   <td>{{ $evento->title }}</td>
   <td>{{ $evento->descripcion }}</td>
-  <td>{{ $evento->start}} </td>
+  <td>{{ $evento->inicio}} </td>
   <td>{{ $evento->end}}</td>
   </tr>
 </table>
