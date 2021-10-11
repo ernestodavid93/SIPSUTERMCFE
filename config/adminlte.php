@@ -295,7 +295,7 @@ return [
                 ],
                 [
                     'text' => 'Baja',
-                    'url' => 'empleado',
+                    'url' => 'empleado/baja',
                 ],
             ],   
         ],

@@ -41,7 +41,7 @@ Route::resource('capacitacion', CapacitacionController::class)->middleware('auth
 Route::resource('direccion', DireccionController::class)->middleware('auth');
 Auth::routes();
 
-Route::get('/home', [EmpleadoController::class, 'index'])->name('home');
+// Route::get('/home', [EmpleadoController::class, 'index'])->name('home');
 
 Route::group(['middleware'=>['auth']],function(){
 Route::get('/evento', [App\Http\Controllers\EventoController::class, 'index']);
