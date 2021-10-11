@@ -1,22 +1,30 @@
-@extends('adminlte::page')
+{{-- @extends('adminlte::page')
 @section('title', 'SIPSUTERMCFE')
 @section('content_header')
 
 <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
 
+@section('title', 'SIPSUTERMCFE') --}}
+
+@extends('layouts.app')
+@section('content')
+
+@extends('adminlte::page')
+<link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
 @section('title', 'SIPSUTERMCFE')
 
 
     <h1>Solicitud Vacaciones Empleados</h1>
    
-     {{-- @foreach($solicitudes as $solicitud)
+    @section('content_header')
+     @foreach($solicitudes as $solicitud)
       <table>
       <tr>
       <td>{{ $solicitud->FechaInicio }}</td>
       </tr>
     </table>
-      @endforeach --}}
-    
+      @endforeach
+@endsection
   
 
 <div class="container">
@@ -78,6 +86,8 @@
 
 </div>
 </div>
+
+
 
  
 

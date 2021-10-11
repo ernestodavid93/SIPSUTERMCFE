@@ -16,7 +16,7 @@ class Solicitude extends Model
          'FechaFin'=>'required',
     ];
 
-    protected $fillable=['title','descripcion','FechaInicio','FechaFin'];
+    protected $fillable=['Nombre','Descripcion','FechaInicio','FechaFin'];
 
     protected $dates = [
         'FechaInicio',

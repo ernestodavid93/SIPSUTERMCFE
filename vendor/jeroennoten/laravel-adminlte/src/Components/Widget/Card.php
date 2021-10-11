@@ -36,6 +36,14 @@ class Card extends Component
     public $themeMode;
 
     /**
+     * Extra classes for the "card-body" element. This provides a way to
+     * customize the card body container style.
+     *
+     * @var string
+     */
+    public $bodyClass;
+
+    /**
      * Indicates if the card is disabled. When enabled, an overay will show
      * over the card.
      *
@@ -75,13 +83,14 @@ class Card extends Component
      */
     public function __construct(
         $title = null, $icon = null, $theme = null, $themeMode = null,
-        $disabled = null, $collapsible = null, $removable = null,
-        $maximizable = null
+        $bodyClass = null, $disabled = null, $collapsible = null,
+        $removable = null, $maximizable = null
     ) {
         $this->title = $title;
         $this->icon = $icon;
         $this->theme = $theme;
         $this->themeMode = $themeMode;
+        $this->bodyClass = $bodyClass;
         $this->disabled = $disabled;
         $this->removable = $removable;
         $this->collapsible = $collapsible;
@@ -114,6 +123,38 @@ class Card extends Component
     }
 
     /**
+     * Make the class attribute for the card body.
+     *
+     * @return string
+     */
+    public function makeCardBodyClass()
+    {
+        $classes = ['card-body'];
+
+        if (isset($this->bodyClass)) {
+            $classes[] = $this->bodyClass;
+        }
+
+        return implode(' ', $classes);
+    }
+
+    /**
+     * Make the class attribute for the card header.
+     *
+     * @return string
+     */
+    public function makeCardHeaderClass()
+    {
+        $classes = ['card-header'];
+
+        if ($this->isCardHeaderEmpty()) {
+            $classes[] = 'd-none';
+        }
+
+        return implode(' ', $classes);
+    }
+
+    /**
      * Make the class attribute for the card title.
      *
      * @return string
@@ -127,6 +168,20 @@ class Card extends Component
         }
 
         return implode(' ', $classes);
+    }
+
+    /**
+     * Check if the card header is empty (no items defined for the header).
+     *
+     * @return bool
+     */
+    protected function isCardHeaderEmpty()
+    {
+        $hasTools = isset($this->collapsible) ||
+                    isset($this->maximizable) ||
+                    isset($this->removable);
+
+        return empty($this->title) && empty($this->icon) && ! $hasTools;
     }
 
     /**

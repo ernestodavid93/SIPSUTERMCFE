@@ -1,7 +1,7 @@
 <div {{ $attributes->merge(['class' => $makeCardClass()]) }}>
 
     {{-- Card header --}}
-    <div class="card-header">
+    <div class="{{ $makeCardHeaderClass() }}">
 
         {{-- Title --}}
         <h3 class="{{ $makeCardTitleClass() }}">
@@ -29,7 +29,11 @@
     </div>
 
     {{-- Card body --}}
-    <div class="card-body">{{ $slot }}</div>
+    @if(! $slot->isEmpty())
+        <div {{ $attributes->merge(['class' => $makeCardBodyClass()]) }}>
+            {{ $slot }}
+        </div>
+    @endif
 
     {{-- Card overlay --}}
     @if($disabled)
