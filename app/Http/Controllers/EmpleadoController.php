@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Empleado;
 use Illuminate\Http\Request;
-
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
+use Carbon\Carbon;
 
 
 class EmpleadoController extends Controller
@@ -18,10 +19,16 @@ class EmpleadoController extends Controller
     public function index()
     {
         //
-        $datos['empleados']=Empleado::paginate(10);
+
+        // $empleados = \DB::table('empleados')
+        // ->select('id','Nombre','ApellidoPaterno','ApellidoMaterno','Contrato','RPE','IMMS','FechaIngreso','RFC','TipoSangre','Alergias','Padecimientos','Rol','Domicilio','TelefonoCasa','TelefonoCelular','FechaNacimiento','CorreoElectronico','Sexo','EstadoCivil','Hijos','Papa','Mama','ContactoEmergencia','TelefonoEmergencia','CursosParticipaba')
+        // ->get();
+        // return view('empleado.index')->with('empleados',$empleados);
+
+        // verificar si se pueden agregar empleados o afecta lo de arriba
+        $datos['empleado']=Empleado::paginate(10);
         return view ('empleado.index',$datos);
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -191,3 +198,6 @@ class EmpleadoController extends Controller
 }
 
 }
+
+
+

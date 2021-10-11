@@ -1,28 +1,15 @@
+
+
 @extends('layouts.app')
 @section('content')
 
 @extends('adminlte::page')
 <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
 @section('title', 'SIPSUTERMCFE')
-
-@section('content_header')
-@foreach($eventos as $evento)
-$aux -> evento->start.date_parse($evento->start);
-use DateTime;
+{{-- 
+<?php echo Carbon\Carbon::parse(DB::table('eventos')->find(1)->created_at)->toCookieString(); ?>  --}}
 
 
-
-  <table>
-  <tr>
-  <td>{{ $evento->title }}</td>
-  <td>{{ $evento->descripcion }}</td>
-  <td>{{ $evento->inicio}} </td>
-  <td>{{ $evento->end}}</td>
-  </tr>
-</table>
-  @endforeach
-
-@endsection
 
 
     
@@ -89,11 +76,14 @@ use DateTime;
             <button type="button" class="btn btn-warning" id="btnModificar">Modificar</button>
             <button type="button" class="btn btn-danger" id="btnEliminar">Eliminar</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+
+
                 
             </div>
         </div>
     </div>
 </div>
+
 
 
 

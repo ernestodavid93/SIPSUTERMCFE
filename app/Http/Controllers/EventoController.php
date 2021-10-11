@@ -17,7 +17,7 @@ class EventoController extends Controller
     public function index()
     {
         $eventos = \DB::table('eventos')
-        ->select('title')
+        ->select('title','descripcion','start','end')
         ->get();
         return view('evento.index')->with('eventos',$eventos);
     }
