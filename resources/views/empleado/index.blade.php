@@ -1,6 +1,6 @@
 
 @extends('adminlte::page')
-@section('title', 'SIPSUTERMCFA')
+@section('title', 'SIPSUTERMCFE')
 @section('content_header')
     <h1>Empleados</h1>
     <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
@@ -21,41 +21,6 @@
 </div>
 @endif
 
-@foreach($empleados as $empleado)
-
-
-
-  <table>
-  <tr>
-  <td>{{ $empleado->Nombre }}</td>
-  <td>{{ $empleado->ApellidoMaterno }}</td>
-  <td>{{ $empleado->Contrato }}</td>
-  <td>{{ $empleado->RPE }}</td>
-  <td>{{ $empleado->IMMS }}</td>
-  <td>{{   \Carbon\Carbon::parse($empleado->FechaIngreso)->format('d/m/Y') }} </td>
-  <td>{{ $empleado->RFC }}</td>
-  <td>{{ $empleado->TipoSangre }}</td>
-  <td>{{ $empleado->Alergias }}</td>
-  <td>{{ $empleado->Padecimientos }}</td>
-  <td>{{ $empleado->Rol }}</td>
-  <td>{{ $empleado->Domicilio }}</td>
-  <td>{{ $empleado->TelefonoCasa }}</td>
-  <td>{{ $empleado->TelefonoCelular }}</td>
-  <td>{{   \Carbon\Carbon::parse($empleado->fechaNacimiento)->format('d/m/Y') }} </td>
-  <td>{{ $empleado->CorreoElectronico }}</td>
-  <td>{{ $empleado->Sexo }}</td>
-  <td>{{ $empleado->EstadoCivil }}</td>
-  <td>{{ $empleado->Hijos }}</td>
-  <td>{{ $empleado->Papa }}</td>
-  <td>{{ $empleado->Mama}}</td>
-  <td>{{ $empleado->ContactoEmergencia }}</td>
-  <td>{{ $empleado->TelefonoEmergencia }}</td>
-  <td>{{ $empleado->ContactoEmergencia }}</td>
-  <td>{{ $empleado->CursosParticipaba }}</td>
-  </tr>
-</table>
-
-  @endforeach
 
 
 
@@ -79,7 +44,6 @@
             <th>Cursos que Participa</th>
         </tr>
     </thead>
-
 
     <tbody>
         @foreach($empleados as $empleado)
@@ -202,7 +166,7 @@
     </tbody>
 
 </table>
-{{-- {!! empleados->links() !!} --}}
+{!! $empleados->links() !!}
 </div>
 @endsection
 

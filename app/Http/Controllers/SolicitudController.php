@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller\EmpleadoController;
+use App\Models\Solicitud;
+use Carbon\Carbon;
 
 class SolicitudController extends Controller
 {
@@ -14,9 +17,12 @@ class SolicitudController extends Controller
      */
     public function index()
     {
-     //   $solicitudes = $this->solicitudes->obtenerSolicitudes();
-    //     return view('solicitudes.lista', ['solicitudes' => $solicitudes]);
+        $solicitudes = \DB::table('solicitudes')
+        ->select('Nombre')
+        ->get();
+        return view('solicitud.index')->with('solicitudes',$solicitudes);
     }
+
 
     /**
      * Show the form for creating a new resource.

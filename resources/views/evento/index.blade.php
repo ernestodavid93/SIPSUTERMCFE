@@ -9,6 +9,20 @@
 {{-- 
 <?php echo Carbon\Carbon::parse(DB::table('eventos')->find(1)->created_at)->toCookieString(); ?>  --}}
 
+@section('content_header')
+@foreach($eventos as $evento)
+  <table>
+  <tr>
+  <td>{{ $evento->title,
+          $evento->descripcion }} </td>
+  </tr>
+</table>
+  @endforeach
+
+@endsection
+
+
+
 
 
 
