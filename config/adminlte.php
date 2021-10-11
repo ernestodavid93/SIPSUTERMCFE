@@ -349,7 +349,7 @@ return [
                             'submenu' => [
                                 [
                                     'text' => 'Solicitar vacaciones',
-                                    'url' => '#',
+                                    'url' => 'solicitud',
                                 ],
                                 [   
                                     'text' => 'Consultar vacaciones',

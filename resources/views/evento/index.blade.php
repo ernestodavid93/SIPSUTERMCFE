@@ -9,20 +9,7 @@
 {{-- 
 <?php echo Carbon\Carbon::parse(DB::table('eventos')->find(1)->created_at)->toCookieString(); ?>  --}}
 
-@foreach($eventos as $evento)
 
-
-
-  <table>
-  <tr>
-  <td>{{ $evento->title }}</td><
-  <td>{{ $evento->descripcion }}</td><br/>
-  <td>{{   \Carbon\Carbon::parse($evento->start)->format('d/m/Y') }} </td><br/>
-  <td>{{ \Carbon\Carbon::parse($evento->end)->format('d/m/Y') }}</td><br/>
-  </tr>
-</table>
-
-  @endforeach
 
 
     

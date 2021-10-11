@@ -29,6 +29,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/solicitud', function () {
+    return view('solicitud.index');
+});
 /*Route::get('/usuario', function () {
     return view('usuario.index');
 });
@@ -60,16 +63,7 @@ Route::group(['middleware'=>['auth']],function(){
     Route::post('/calendarioEmpleado/actualizar/{calendarioEmpleado}', [App\Http\Controllers\CalendarioEmpleadoController::class, 'update']);
     Route::post('/calendarioEmpleado/borrar/{id}', [App\Http\Controllers\CalendarioEmpleadoController::class, 'destroy']);
     });
- 
-    
-    Route::group(['middleware'=>['auth']],function(){
-        Route::get('/calendarioCursos', [App\Http\Controllers\CalendarioCursosController::class, 'index']);
-        Route::post('/calendarioCursos/mostrar', [App\Http\Controllers\CalendarioCursosController::class, 'show']);
-        Route::post('/calendarioCursos/agregar', [App\Http\Controllers\CalendarioCursosController::class, 'store']);
-        Route::post('/calendarioCursos/editar/{id}', [App\Http\Controllers\CalendarioCursosController::class, 'edit']);
-        Route::post('/calendarioCursos/actualizar/{calendarioCursos}', [App\Http\Controllers\CalendarioCursosController::class, 'update']);
-        Route::post('/calendarioCursos/borrar/{id}', [App\Http\Controllers\CalendarioCursosController::class, 'destroy']);
-        });
+
 
         
     Route::group(['middleware'=>['auth']],function(){
