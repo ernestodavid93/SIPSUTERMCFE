@@ -1,8 +1,6 @@
-@extends('layouts.app')
-@section('content')
-
 @extends('adminlte::page')
-
+@section('title', 'SIPSUTERMCFE')
+@section('content_header')
 
 <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
 
@@ -19,9 +17,6 @@
     </table>
       @endforeach --}}
     
-
-    
-
   
 
 <div class="container">

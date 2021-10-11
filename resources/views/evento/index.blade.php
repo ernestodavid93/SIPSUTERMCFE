@@ -13,8 +13,10 @@
 @foreach($eventos as $evento)
   <table>
   <tr>
-  <td>{{ $evento->title,
-          $evento->descripcion }} </td>
+  <td>{{ $evento->title }}</td>
+  <td>{{ $evento->descripcion }}</td>
+  <td> {{\Carbon\Carbon::parse($evento->start)->format('d/m/Y')}} </td>
+  <td>  {{\Carbon\Carbon::parse($evento->end)->format('d/m/Y')}}  </td>
   </tr>
 </table>
   @endforeach
