@@ -11,16 +11,15 @@
 
     <h1>Solicitud Vacaciones Empleados</h1>
    
-    @section('content_header')
-    @foreach($solicitudes as $solicitud)
+     {{-- @foreach($solicitudes as $solicitud)
       <table>
       <tr>
-      <td>{{ $solicitud->Nombre }}
+      <td>{{ $solicitud->FechaInicio }}</td>
       </tr>
     </table>
-      @endforeach
+      @endforeach --}}
     
-    @endsection
+
     
 
   
@@ -86,8 +85,6 @@
 </div>
 
  
-
-
 
 
 @endsection

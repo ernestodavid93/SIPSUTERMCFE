@@ -18,7 +18,7 @@ class SolicitudController extends Controller
     public function index()
     {
         $solicitudes = \DB::table('solicitudes')
-        ->select('Nombre')
+        ->select('FechaInicio')
         ->get();
         return view('solicitud.index')->with('solicitudes',$solicitudes);
     }
@@ -31,7 +31,7 @@ class SolicitudController extends Controller
      */
     public function create()
 {
-    return view('solicitud.index');
+    // return view('solicitud.index');
 }
 
     /**
