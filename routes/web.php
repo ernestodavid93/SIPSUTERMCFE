@@ -4,6 +4,7 @@ use App\Http\Controllers\CapacitacionController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\DireccionController;
+use App\Http\Controllers\SolicitudController;
 
 
 /*
@@ -29,9 +30,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
 Route::get('/solicitud', function () {
     return view('solicitud.index');
 });
+
+Route::get('/solicitud', [App\Http\Controllers\SolicitudController::class, 'index']);
 /*Route::get('/usuario', function () {
     return view('usuario.index');
 });

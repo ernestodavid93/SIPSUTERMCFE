@@ -17,10 +17,10 @@ class EmpleadoController extends Controller
      */
     public function index()
     {   
-        $solicitudes = \DB::table('empleados')
-        ->select('Nombre')
-        ->get();
-        return view('solicitud.index')->with('solicitudes',$solicitudes);
+        // $solicitudes = \DB::table('empleados')
+        // ->select('Nombre')
+        // ->get();
+        // return view('solicitud.index')->with('solicitudes',$solicitudes);
 
         //
         $datos['empleados']=Empleado::paginate(10);

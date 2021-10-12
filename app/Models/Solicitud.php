@@ -5,9 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Solicitude extends Model
+class solicitudes extends Model
 {
     use HasFactory;
+
+    protected $table='solicitudes';
+
 
     static $rules=[
         'Nombre'=>'required',

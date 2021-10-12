@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Solicitud;
+
 use Carbon\Carbon;
 
 class SolicitudController extends Controller
@@ -16,10 +16,17 @@ class SolicitudController extends Controller
      */
     public function index()
     {
-        $solicitudes = \DB::table('solicitudes')
-        ->select('Nombre','Descripcion','FechaInicio','FechaFin')
+        $solicitudes = \DB::table('empleados')
+        ->select('*')
         ->get();
         return view('solicitud.index')->with('solicitudes',$solicitudes);
+
+        
+		// $listaSolicitudes=SolicitudController::all();
+
+		// return view('solicitud.index', array('listaSolicitudes', $listaSolicitudes));
+
+
     }
 
 
