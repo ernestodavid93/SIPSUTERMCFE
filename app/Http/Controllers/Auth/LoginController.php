@@ -39,10 +39,4 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-
-    public function obtenerEmail(){
-    $email = AuthenticatesUsers::user()->email;
-    return $email;
-    }
-
 }
