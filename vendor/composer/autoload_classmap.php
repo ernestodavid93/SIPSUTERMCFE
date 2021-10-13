@@ -49,7 +49,6 @@ return array(
     'App\\Models\\Evento' => $baseDir . '/app/Models/Evento.php',
     'App\\Models\\Lugar_De_Trabajo' => $baseDir . '/app/Models/Lugar_De_Trabajo.php',
     'App\\Models\\Role' => $baseDir . '/app/Models/Role.php',
-    'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Models\\Zona' => $baseDir . '/app/Models/Zona.php',
     'App\\Models\\calendarioCursos' => $baseDir . '/app/Models/calendarioCursos.php',
     'App\\Models\\calendarioPermiso' => $baseDir . '/app/Models/calendarioPermiso.php',

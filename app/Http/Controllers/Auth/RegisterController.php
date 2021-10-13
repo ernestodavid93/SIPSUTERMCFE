@@ -11,8 +11,9 @@ use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
 {
+ 
     /*
-    |--------------------------------------------------------------------------
+    |------------------------------------------------------------------
     | Register Controller
     |--------------------------------------------------------------------------
     |
@@ -21,7 +22,7 @@ class RegisterController extends Controller
     | provide this functionality without requiring any additional code.
     |
     */
-
+    
     use RegistersUsers;
 
     /**
@@ -41,6 +42,7 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+        
     /**
      * Get a validator for an incoming registration request.
      *
@@ -64,10 +66,13 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            // 'password' => Hash::make($data['password']),
+             'password' => $data['password'],
         ]);
     }
 }

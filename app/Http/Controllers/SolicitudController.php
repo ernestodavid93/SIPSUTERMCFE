@@ -4,6 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Auth\LoginController;
+use Illuminate\Auth\SessionGuard;
+use Illuminate\Support\Facades\Auth;
+Use App\Models\Empleado;
+ 
+
+
 
 use Carbon\Carbon;
 
@@ -13,15 +20,40 @@ class SolicitudController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
+     *
+     *
      */
+
+    // public function build()
+    // {
+    //     return $this->view('solicitud.index')
+    //         ->with('data', [
+    //             'image' => $solicitudes = \DB::table('empleados')
+    //             ->select('*')->where('RPE','=','TF567')
+    //             ->get(),
+    //         ]);
+    // }
+
+
     public function index()
     {
-        $solicitudes = \DB::table('empleados')
-        ->select('*')
-        ->get();
-        return view('solicitud.index')->with('solicitudes',$solicitudes);
 
-        
+
+ 
+            // Obtiene el ID del Usuario Autenticado
+            $user = Auth::user();
+            
+
+        $solicitud = Empleado::query()->where('CorreoElectronico','=',$user->email)
+        // ->select('*')->where('RPE','=','TF567')
+        ->first();
+        return view('solicitud.index')->with('solicitud',$solicitud);
+
+
+
+
+
+
 		// $listaSolicitudes=SolicitudController::all();
 
 		// return view('solicitud.index', array('listaSolicitudes', $listaSolicitudes));

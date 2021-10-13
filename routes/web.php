@@ -36,7 +36,7 @@ Route::get('/solicitud', function () {
     return view('solicitud.index');
 });
 
-Route::get('/solicitud', [App\Http\Controllers\SolicitudController::class, 'index']);
+// Route::get('/solicitud', [App\Http\Controllers\SolicitudController::class, 'index']);
 /*Route::get('/usuario', function () {
     return view('usuario.index');
 });
@@ -47,6 +47,7 @@ Route::get('/usuario/create', [EmpleadoController::class,'create']);
 Route::resource('empleado', EmpleadoController::class)->middleware('auth');
 Route::resource('capacitacion', CapacitacionController::class)->middleware('auth');
 Route::resource('direccion', DireccionController::class)->middleware('auth');
+Route::resource('solicitud', SolicitudController::class)->middleware('auth');
 Auth::routes();
 
 // Route::get('/home', [EmpleadoController::class, 'index'])->name('home');
