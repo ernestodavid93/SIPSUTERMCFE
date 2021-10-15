@@ -4,6 +4,8 @@
 
 <h1>{{ $modo }} empleado </h1>
 
+
+
 @if(count($errors)>0)
 
     <div class="alert alert-danger" role="alert">
@@ -14,13 +16,28 @@
     </ul>
     </div>
 
-   
+
 
 @endif
 
+<?php
+
+use App\Models\User;
+
+
+//foreach ($users as $user)
+
+
+$users2 = \Illuminate\Support\Facades\Auth::user();
+
+
+?>
+
+
+
 <div class="form-group">
 <label for="Nombre"> Nombre </label>
-<input type="text" class="form-control" name="Nombre" id="Nombre" value="{{ isset($empleado->Nombre)?$empleado->Nombre:old('Nombre') }}">
+<input type="text" class="form-control" name="Nombre" id="Nombre" value="{{ isset($empleado->Nombre)?$empleado->Nombre:$users2->name}}">
 </div>
 
 <div class="form-group">
@@ -141,7 +158,7 @@ TelefonoCelular') }}">
 
 <div class="form-group">
 <label for="CorreoElectronico"> Correo Electronico </label>
-<input type="text" class="form-control" name="CorreoElectronico" id="CorreoElectronico" value="{{ isset($empleado->CorreoElectronico)?$empleado->CorreoElectronico:old('CorreoElectronico') }}">
+<input type="text" class="form-control" name="CorreoElectronico" id="CorreoElectronico" value="{{ isset($empleado->CorreoElectronico)?$empleado->CorreoElectronico:$users2->email }}">
 </div>
 
 

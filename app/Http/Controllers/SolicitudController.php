@@ -7,8 +7,16 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Auth\SessionGuard;
 use Illuminate\Support\Facades\Auth;
+<<<<<<< HEAD
 use App\Models\Empleado;
 use App\Models\Solicitud;
+=======
+Use App\Models\Empleado;
+
+
+
+
+>>>>>>> 0f38970bd143e439deeec20950933a336b7ee405
 use Carbon\Carbon;
 
 class SolicitudController extends Controller
@@ -36,10 +44,10 @@ class SolicitudController extends Controller
     {
 
 
- 
+
             // Obtiene el ID del Usuario Autenticado
             $user = Auth::user();
-            
+
 
         $solicitud = Empleado::query()->where('CorreoElectronico','=',$user->email)
         // ->select('*')->where('RPE','=','TF567')

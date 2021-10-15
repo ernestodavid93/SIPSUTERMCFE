@@ -72,7 +72,7 @@ Route::group(['middleware'=>['auth']],function(){
     });
 
 
-        
+
     Route::group(['middleware'=>['auth']],function(){
         Route::get('/calendarioPermiso', [App\Http\Controllers\CalendarioPermisoController::class, 'index']);
         Route::post('/calendarioPermiso/mostrar', [App\Http\Controllers\CalendarioPermisoController::class, 'show']);
@@ -80,7 +80,7 @@ Route::group(['middleware'=>['auth']],function(){
         Route::post('/calendarioPermiso/editar/{id}', [App\Http\Controllers\CalendarioPermisoController::class, 'edit']);
         Route::post('/calendarioPermiso/actualizar/{calendarioPermisos}', [App\Http\Controllers\CalendarioPermisoController::class, 'update']);
         Route::post('/calendarioPermiso/borrar/{id}', [App\Http\Controllers\CalendarioPermisoController::class, 'destroy']);
-        }); 
+        });
 
         Route::group(['middleware'=>['auth']],function(){
         Route::get('/departamentoJefe',[App\Http\Controllers\DepartamentoJefeController::class,'index']);

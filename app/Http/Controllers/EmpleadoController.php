@@ -4,8 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Empleado;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Storage;
+
+use Illuminate\Support\Facades\Auth;
+Use App\Models\User;
+use Carbon\Carbon;
 
 
 class EmpleadoController extends Controller
@@ -13,16 +17,25 @@ class EmpleadoController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     *
+     *
+     *
      */
-    public function index()
-    {   
-        // $solicitudes = \DB::table('empleados')
-        // ->select('Nombre')
-        // ->get();
-        // return view('solicitud.index')->with('solicitudes',$solicitudes);
 
-        //
+    public function rellenar(){
+        $user = Auth::user();
+
+        //$solicitud2 = Empleado::query()->where('CorreoElectronico','=',$user->email)
+            // ->select('*')->where('RPE','=','TF567')
+          //  ->first();
+        return view('form.index')->with('user',$user);
+    }
+
+
+    public function index()
+    {
+
         $datos['empleados']=Empleado::paginate(10);
         return view ('empleado.index',$datos);
     }
@@ -46,7 +59,7 @@ class EmpleadoController extends Controller
      */
     public function store(Request $request)
     {
-        
+
 
         $campos=[
             'Nombre'=>'required|string|max:100',
@@ -162,7 +175,7 @@ class EmpleadoController extends Controller
             'Alergias.required'=>'Las alergias son requeridas especificar'
         ];
 
-   
+
         $this->validate($request, $campos, $mensaje);
 
 
@@ -171,7 +184,7 @@ class EmpleadoController extends Controller
 
 
         Empleado::where('id','=',$id)->update($datosempleado);
-        
+
         $empleado=Empleado::findOrFail($id);
         //return view('empleado.edit',compact('empleado') );
         return redirect('empleado')->with('mensaje','empleado editado con exito');
@@ -190,8 +203,8 @@ class EmpleadoController extends Controller
         $empleado=Empleado::findOrFail($id);
 
              Empleado::destroy($id);
-  
-    
+
+
         return redirect('empleado')->with('mensaje','empleado borrado con exito');
 }
 
