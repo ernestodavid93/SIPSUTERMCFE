@@ -30,13 +30,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-
+/*
 Route::get('/solicitud', function () {
     return view('solicitud.index');
-});
+});*/
 
-// Route::get('/solicitud', [App\Http\Controllers\SolicitudController::class, 'index']);
+Route::get('/solicitud', [SolicitudController::class, 'index']);
+Route::post('/solicitud', [SolicitudController::class, 'store'])->name('solicitud.store');
+
 /*Route::get('/usuario', function () {
     return view('usuario.index');
 });
