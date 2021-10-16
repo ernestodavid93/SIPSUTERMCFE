@@ -49,6 +49,9 @@
 $dbDate = \Carbon\Carbon::parse($solicitud->FechaIngreso);
 $diffYears = \Carbon\Carbon::now()->diffInYears($dbDate);
 
+$dbDateRPE = $solicitud->RPE;
+
+
 $diasHabiles = 0;
 
 
@@ -171,7 +174,7 @@ elseif ($diffYears >= 25) {
                                             <p>1</p>
                                         </td>
                                         <td data-name="name">
-                                            <input type="text" name="Nombre" id="Nombre">
+                                            <input type="text" name="Nombre" id="Nombre" value="{{$dbDateRPE}}">
                                         </td>
                                         <td data-name="fechainicio">
                                             <input type="date" class="form-control" name="FechaInicio" id="FechaInicial">
