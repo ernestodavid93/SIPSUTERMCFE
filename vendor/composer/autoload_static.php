@@ -24,9 +24,9 @@ class ComposerStaticInitb02244332b25177b2e3c13c4885271d5
         '23c18046f52bef3eea034657bafda50f' => __DIR__ . '/..' . '/symfony/polyfill-php81/bootstrap.php',
         'a1105708a18b76903365ca1c4aa61b02' => __DIR__ . '/..' . '/symfony/translation/Resources/functions.php',
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
-        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '538ca81a9a966a6716601ecf48f4eaef' => __DIR__ . '/..' . '/opis/closure/functions.php',
         'e39a8b23c42d4e1452234d762b03835a' => __DIR__ . '/..' . '/ramsey/uuid/src/functions.php',
+        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '265b4faa2b3a9766332744949e83bf97' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Collections/helpers.php',
         'c7a3c339e7e14b60e06a2d7fcce9476b' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Events/functions.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
@@ -193,8 +193,8 @@ class ComposerStaticInitb02244332b25177b2e3c13c4885271d5
         'phpDocumentor\\Reflection\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
-            1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
-            2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
+            1 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
+            2 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
         ),
         'Whoops\\' => 
         array (
@@ -582,6 +582,7 @@ class ComposerStaticInitb02244332b25177b2e3c13c4885271d5
         'App\\Models\\Evento' => __DIR__ . '/../..' . '/app/Models/Evento.php',
         'App\\Models\\Lugar_De_Trabajo' => __DIR__ . '/../..' . '/app/Models/Lugar_De_Trabajo.php',
         'App\\Models\\Role' => __DIR__ . '/../..' . '/app/Models/Role.php',
+        'App\\Models\\Solicitud' => __DIR__ . '/../..' . '/app/Models/Solicitud.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Models\\Zona' => __DIR__ . '/../..' . '/app/Models/Zona.php',
         'App\\Models\\calendarioCursos' => __DIR__ . '/../..' . '/app/Models/calendarioCursos.php',
@@ -1781,6 +1782,7 @@ class ComposerStaticInitb02244332b25177b2e3c13c4885271d5
         'Illuminate\\Console\\BufferedConsoleOutput' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Console/BufferedConsoleOutput.php',
         'Illuminate\\Console\\Command' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Console/Command.php',
         'Illuminate\\Console\\Concerns\\CallsCommands' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Console/Concerns/CallsCommands.php',
+        'Illuminate\\Console\\Concerns\\CreatesMatchingTest' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Console/Concerns/CreatesMatchingTest.php',
         'Illuminate\\Console\\Concerns\\HasParameters' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Console/Concerns/HasParameters.php',
         'Illuminate\\Console\\Concerns\\InteractsWithIO' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Console/Concerns/InteractsWithIO.php',
         'Illuminate\\Console\\ConfirmableTrait' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Console/ConfirmableTrait.php',
@@ -2392,6 +2394,7 @@ class ComposerStaticInitb02244332b25177b2e3c13c4885271d5
         'Illuminate\\Queue\\Events\\JobProcessed' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Queue/Events/JobProcessed.php',
         'Illuminate\\Queue\\Events\\JobProcessing' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Queue/Events/JobProcessing.php',
         'Illuminate\\Queue\\Events\\JobQueued' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Queue/Events/JobQueued.php',
+        'Illuminate\\Queue\\Events\\JobRetryRequested' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Queue/Events/JobRetryRequested.php',
         'Illuminate\\Queue\\Events\\Looping' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Queue/Events/Looping.php',
         'Illuminate\\Queue\\Events\\QueueBusy' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Queue/Events/QueueBusy.php',
         'Illuminate\\Queue\\Events\\WorkerStopping' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Queue/Events/WorkerStopping.php',

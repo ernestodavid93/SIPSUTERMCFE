@@ -83,42 +83,17 @@ class SolicitudController extends Controller
      */
     public function store(Request $request)
     {
-        /*
-        
-        $campos = [
-            'Nombre' => 'required|string',
-            'Descripcion' => 'required|text',
-            'FechaInicio' => 'required|date',
-            'FechaFin' => 'required|date',
-        ];
-
-        $mensaje = [
-            'required'=>'El :attribute es requerido',
-            'FechaInicio.required'=>'La fecha de inicio es requerida',
-            'FechaFin.required'=>'La fecha de fin es requerida',
-        ]; 
-        
-        */
-
-        //$this->validate($request, $campos, $mensaje);
-
-        //$datosdesolicitud = request()->all();
-        //$datosdesolicitud = request()->except('_token');
-
-        //Solicitud::insert($datosdesolicitud);
-
-        //return response()->json($datosdesolicitud);
-       
-        
-        
-        
+    
+           
          $solicitud = new Solicitud();
-         $solicitud->Nombre = $request->Nombre;
-         $solicitud->Descripcion = $request->Descripcion;
-         $solicitud->FechaInicio = $request->FechaInicio;
-         $solicitud->FechaFin = $request->FechaFin;
+         $solicitud->Nombre = $request->input('Nombre');
+         $solicitud->Descripcion = $request->input('Descripcion');
+         $solicitud->FechaInicio = $request->input('FechaInicio');
+         $solicitud->FechaFin = $request->input('FechaFin');
           
          $solicitud->save();
+
+         return dd($solicitud);
          
          
 
