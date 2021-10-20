@@ -91,13 +91,23 @@ class SolicitudController extends Controller
          $solicitud->FechaInicio = $request->input('FechaInicio');
          $solicitud->FechaFin = $request->input('FechaFin');
           
-         $solicitud->save();
-
-         return dd($solicitud);
-         
-         
-
-         return back()->with('mensaje', 'La solicitud se almaceno correctamente');
+         //return dd($solicitud);
+                    
+         $solicitud2 = new Solicitud();
+         $solicitud2->FechaInicio = $request->FechaInicio;
+         $solicitud2->FechaFin = $request->FechaFin;
+         $solicitudVacaciones = Solicitud::whereBetween('FechaInicio', [ $solicitud2->FechaInicio,  $solicitud2->FechaFin])->count();
+         $solicitudVacaciones += Solicitud::whereBetween('FechaFin', [ $solicitud2->FechaInicio,  $solicitud2->FechaFin])->count();  
+         if($solicitudVacaciones!=0){
+             return back()->with('mensaje', 'Los dias que solicitaste no estan disponibles');   
+         }
+         else if($solicitudVacaciones==0){
+            $solicitud->save();
+            return back()->with('mensaje', 'La solicitud se almaceno correctamente');
+         }
+        else{
+            return back()->with('mensaje', 'error inesperado');
+        } 
     }
 
     /**

@@ -117,7 +117,7 @@ elseif ($diffYears >= 25) {
                 <div class="row clearfix">
                     <div class="col-md-12 table-responsive">
                         <table class="table table-bordered table-hover table-sortable" id="tab_logic">
-                            <thead class="table-dark">
+                            <thead class="table-dark" style="background-color:rgb(42, 122, 5)">
                                 <tr >
                                     <th class="text-center">
                                         Nombre
