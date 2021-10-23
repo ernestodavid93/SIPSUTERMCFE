@@ -11,7 +11,7 @@ class Solicitud extends Model
 
     protected $table='solicitudes';
 
-    protected $fillable=['Nombre','Descripcion','FechaInicio','FechaFin'];
+    protected $fillable=['RPE','Nombre','Descripcion','FechaInicio','FechaFin'];
 
 
 

@@ -255,7 +255,7 @@ return [
                 ],
             ]
         ],
-   
+
                 /*[
                     'text' => 'Usuario',
                     'url'  => '#',
@@ -282,7 +282,7 @@ return [
                         'text' => 'Buzón de sugerencias',
                         'url' => '#',
                     ],
-                ],   
+                ],
             ],*/
             [
                 'text' => 'Empleados',
@@ -297,7 +297,7 @@ return [
                     'text' => 'Baja',
                     'url' => 'empleado/baja',
                 ],
-            ],   
+            ],
         ],
         // [
         //     'text' => 'Registro de asistencias',
@@ -336,7 +336,7 @@ return [
         //             ],
         //         ],
         //     ],
-        // ],   
+        // ],
         // ] ,
         [
             'text' => 'Servicios',
@@ -351,7 +351,7 @@ return [
                                     'text' => 'Solicitar vacaciones',
                                     'url' => 'solicitud',
                                 ],
-                                [   
+                                [
                                     'text' => 'Consultar vacaciones',
                                     'url' => 'evento',
                                 ],
@@ -369,7 +369,7 @@ return [
                 'text' => 'Buzón de sugerencias',
                 'url' => '#',
             ],
-        ],   
+        ],
     ],
    /* [
         'text' => 'Capacitacion',
@@ -388,11 +388,11 @@ return [
             'text' => 'Calificaciones',
             'url' => '#',
         ],
-    ],   
+    ],
 ],*/
 [
     'text' => 'Centros de trabajo',
-    'url'  => '#', 
+    'url'  => '#',
     'icon' => 'fas fa-fw fa-wrench',
 ],
 //[
@@ -416,7 +416,7 @@ return [
 //         'text' => 'Festivos',
 //         'url' => '#',
 //     ],
-// ],   
+// ],
 //],
 // [
 //     'text' => 'Servicio Social',
@@ -430,19 +430,19 @@ return [
 //         'text' => 'Constancias',
 //         'url' => '#',
 //     ],
-// ],   
+// ],
 // ],
 // [
 //     'text' => 'Encuestas',
-//     'url'  => '#', 
+//     'url'  => '#',
 // ],
 // [
 //     'text' => 'Reportes',
-//     'url'  => '#', 
+//     'url'  => '#',
 // ],
 // [
 //     'text' => 'Solicitud de documentos',
-//     'url'  => '#', 
+//     'url'  => '#',
 // ],
 
 

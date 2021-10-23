@@ -22,13 +22,13 @@
     <h1>Solicitud Vacaciones Empleados</h1><br/>
 
 
-  
 
 
-{{--     
+
+{{--
     @foreach ($solicitud as $solicitud) --}}
 
-{{--         
+{{--
       <table>
       <tr>
         {{-- <td>{{ $solicitud->id }}</td> --}}
@@ -38,7 +38,7 @@
       <td>{{ \Carbon\Carbon::parse($solicitud->FechaFin)->format('d/m/Y')}} </td> --}}
       {{-- </tr>
     </table> --}}
-   
+
     {{-- @endforeach
  --}}
 
@@ -46,7 +46,7 @@
 <?php
 
 
-$dbDate = \Carbon\Carbon::parse($solicitud->FechaIngreso);
+use Carbon\Carbon;$dbDate = \Carbon\Carbon::parse($solicitud->FechaIngreso);
 $diffYears = \Carbon\Carbon::now()->diffInYears($dbDate);
 
 $dbDateRPE = $solicitud->RPE;
@@ -65,7 +65,7 @@ elseif ($diffYears == 2) {
     $diasHabiles = 17;
 }
 elseif ($diffYears >= 3 AND $diffYears <= 5) {
-    $diasHabiles = 20;    
+    $diasHabiles = 20;
     //echo "5 días habiles";
     //Se hace de 3 a 5 y no comtemplando 6 a 9 por si se necesita calcular el pago adicional
 }
@@ -93,7 +93,7 @@ elseif ($diffYears >= 25) {
 <br>
     <p>Recuerda que cuentas con <strong>4 periodos</strong> como maximo para agendar tus <strong><?php echo $diasHabiles ?> dias </strong>disponibles.</p>
 
-  
+
 
  <div class="container">
     @if (session('mensaje'))
@@ -107,8 +107,8 @@ elseif ($diffYears >= 25) {
 
     <h2>Registro de Vacaciones</h2>
     <br>
-    
-        
+
+
 <form action="{{route('solicitud.store')}}" method="post">
     @csrf
     <div class="card">
@@ -120,7 +120,10 @@ elseif ($diffYears >= 25) {
                             <thead class="table-dark" style="background-color:rgb(42, 122, 5)">
                                 <tr >
                                     <th class="text-center">
-                                        Nombre
+                                        RPE
+                                    </th>
+                                    <th class="text-center">
+                                        Periodo
                                     </th>
                                     <th class="text-center">
                                         Fecha de Inicio
@@ -135,14 +138,17 @@ elseif ($diffYears >= 25) {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td> 
-                                        <select class="form-control" name="Nombre" id="Nombre" required> 
-                                            <option selected disabled>-- Selecciona --</option> 
+                                    <td>
+                                        <input type="text" class="form-control" name="RPE" id="RPE" value="{{$solicitud->RPE}}">
+                                    </td>
+                                    <td>
+                                        <select class="form-control" name="Nombre" id="Nombre" required>
+                                            <option selected disabled>-- Selecciona --</option>
                                             <option value="Primer Periodo">Primer Periodo</option>
                                             <option value="Segundo Periodo">Segundo Periodo</option>
                                             <option value="Tercer Periodo">Tercer Periodo</option>
                                             <option value="Cuarto Periodo">Cuarto Periodo</option>
-                                        </select> 
+                                        </select>
                                     </td>
                                     <td>
                                         <input type="date" class="form-control" name="FechaInicio" id="FechaInicio" value="">
@@ -158,14 +164,16 @@ elseif ($diffYears >= 25) {
                         </table>
                     </div>
                 </div>
+
                 <button type="submit" class="btn btn-sm btn-success">Guardar</button>
             </div>
         </div>
     </div>
-    
+
 </form>
 
-
+<?php
+dd($diasDiferencia);
+?>
 
 @endsection
-        

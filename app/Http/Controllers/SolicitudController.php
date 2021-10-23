@@ -79,27 +79,28 @@ class SolicitudController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return int
      */
     public function store(Request $request)
     {
-    
-           
-         $solicitud = new Solicitud();
+
+
+         /*$solicitud = new Solicitud();
+         $solicitud->RPE = $request->input("RPE");
          $solicitud->Nombre = $request->input('Nombre');
          $solicitud->Descripcion = $request->input('Descripcion');
          $solicitud->FechaInicio = $request->input('FechaInicio');
          $solicitud->FechaFin = $request->input('FechaFin');
-          
+
          //return dd($solicitud);
-                    
+
          $solicitud2 = new Solicitud();
          $solicitud2->FechaInicio = $request->FechaInicio;
          $solicitud2->FechaFin = $request->FechaFin;
          $solicitudVacaciones = Solicitud::whereBetween('FechaInicio', [ $solicitud2->FechaInicio,  $solicitud2->FechaFin])->count();
-         $solicitudVacaciones += Solicitud::whereBetween('FechaFin', [ $solicitud2->FechaInicio,  $solicitud2->FechaFin])->count();  
+         $solicitudVacaciones += Solicitud::whereBetween('FechaFin', [ $solicitud2->FechaInicio,  $solicitud2->FechaFin])->count();
          if($solicitudVacaciones!=0){
-             return back()->with('mensaje', 'Los dias que solicitaste no estan disponibles');   
+             return back()->with('mensaje', 'Los dias que solicitaste no estan disponibles');
          }
          else if($solicitudVacaciones==0){
             $solicitud->save();
@@ -107,7 +108,14 @@ class SolicitudController extends Controller
          }
         else{
             return back()->with('mensaje', 'error inesperado');
-        } 
+        }*/
+        $FechaInicio = Carbon::parse(input('FechaInicio'));
+        $FechaFin = Carbon::parse(input('FechaFin'));
+        $diasDiferencia = $FechaFin->diffInDays($FechaInicio);
+
+        return view('solicitud.index')->with($diasDiferencia);
+
+
     }
 
     /**
