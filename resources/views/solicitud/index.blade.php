@@ -6,6 +6,15 @@
 @section('css')
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
+<link rel="preconnect" href="{{asset('https://fonts.googleapis.com')}}" />
+<link rel="preconnect" href="{{asset('https://fonts.gstatic.com')}}" crossorigin />
+
+
+@section('javascripts')
+    <script src="<?php echo asset('js/validaciones.js') ?>"></script>
+    <script type="text/javascript" src=<?php echo asset('https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js') ?>></script>
+
+@show
 
 <style>
     .table-sortable tbody tr {
@@ -151,29 +160,27 @@ elseif ($diffYears >= 25) {
                                         </select>
                                     </td>
                                     <td>
-                                        <input type="date" class="form-control" name="FechaInicio" id="FechaInicio" value="">
+                                        <input type="date" class="form-control" name="FechaInicio" id="FechaInicio" value="" Onchange="var diasPas = diasPasados();">
                                     </td>
                                     <td>
-                                        <input type="date" class="form-control" name="FechaFin" id="FechaFin" value="">
+                                        <input type="date" class="form-control" name="FechaFin" id="FechaFin" class="FechaFin" value=""  Onchange="var diasDif = myFunction();
+                                        if(diasDif >= {{$diasHabiles}}){alert('No se pueden agendar más de los permitidos')}else{alert('!Los días que elegiste están disponibles!')}">
                                     </td>
                                     <td>
-                                        <textarea name="Descripcion" placeholder="Description" class="form-control"></textarea>
+                                        <textarea name="Descripcion" placeholder="Description" class="form-control" id="Descripcion"></textarea>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
-
-                <button type="submit" class="btn btn-sm btn-success">Guardar</button>
+                <button type="submit" class="btn btn-sm btn-success" onclick="emailJs1();">Guardar</button>
             </div>
         </div>
     </div>
 
 </form>
 
-<?php
-dd($diasDiferencia);
-?>
+
 
 @endsection

@@ -79,22 +79,23 @@ class SolicitudController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return int
+     * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
 
-
-         /*$solicitud = new Solicitud();
+         $solicitud = new Solicitud();
          $solicitud->RPE = $request->input("RPE");
          $solicitud->Nombre = $request->input('Nombre');
          $solicitud->Descripcion = $request->input('Descripcion');
          $solicitud->FechaInicio = $request->input('FechaInicio');
          $solicitud->FechaFin = $request->input('FechaFin');
 
+         $solicitud->save();
+         return back()->with('mensaje', 'La solicitud se almaceno correctamente');
          //return dd($solicitud);
 
-         $solicitud2 = new Solicitud();
+        /* $solicitud2 = new Solicitud();
          $solicitud2->FechaInicio = $request->FechaInicio;
          $solicitud2->FechaFin = $request->FechaFin;
          $solicitudVacaciones = Solicitud::whereBetween('FechaInicio', [ $solicitud2->FechaInicio,  $solicitud2->FechaFin])->count();
@@ -109,11 +110,11 @@ class SolicitudController extends Controller
         else{
             return back()->with('mensaje', 'error inesperado');
         }*/
-        $FechaInicio = Carbon::parse(input('FechaInicio'));
-        $FechaFin = Carbon::parse(input('FechaFin'));
-        $diasDiferencia = $FechaFin->diffInDays($FechaInicio);
 
-        return view('solicitud.index')->with($diasDiferencia);
+        /*$FechaInicio = Carbon::parse($req->input('FechaInicio'));
+        $FechaFin = Carbon::parse($req->input('FechaFin'));
+
+        $diasDiferencia = $FechaFin->diffInDays($FechaInicio);*/
 
 
     }

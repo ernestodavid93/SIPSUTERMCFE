@@ -23,6 +23,8 @@
     },
     "dependencies": {
         "@fullcalendar/core": "^5.9.0",
-        "@fullcalendar/daygrid": "^5.9.0"
+        "@fullcalendar/daygrid": "^5.9.0",
+        "emailjs-com": "^3.2.0",
+        "moment": "^2.29.1"
     }
 }
