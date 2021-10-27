@@ -82,8 +82,16 @@ class SolicitudController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-
+    {   
+ /* 
+        $solicitudVacaciones = Solicitud::whereBetween('FechaInicio', ['FechaInicio','FechaFin'])->where()->count();
+       $solicitudVacaciones += Solicitud::whereBetween('FechaFin', ['FechaInicio','FechaFin'])->count() ;
+        $totalEmpleado = Solicitud::query()->join('empleados','solicitudes.RPE','=','empleados.RPE')
+        ->join('cat__lugar__de__trabajo__empleados','empleados.id','=','cat__lugar__de__trabajo__empleados.Id_empleado_F')
+        ->count();
+        $porcentaje = (25*$totalEmpleado)/100;
+        return dd($solicitudVacaciones);
+        */ 
          $solicitud = new Solicitud();
          $solicitud->RPE = $request->input("RPE");
          $solicitud->Nombre = $request->input('Nombre');
