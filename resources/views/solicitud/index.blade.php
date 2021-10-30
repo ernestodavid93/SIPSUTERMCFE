@@ -5,7 +5,7 @@
 
 @section('css')
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
+<link rel="stylesheet" href="{{ asset('css/estilos.css') }}"/>
 <link rel="preconnect" href="{{asset('https://fonts.googleapis.com')}}" />
 <link rel="preconnect" href="{{asset('https://fonts.gstatic.com')}}" crossorigin />
 
@@ -58,10 +58,11 @@
 use Carbon\Carbon;$dbDate = \Carbon\Carbon::parse($solicitud->FechaIngreso);
 $diffYears = \Carbon\Carbon::now()->diffInYears($dbDate);
 
+
 $dbDateRPE = $solicitud->RPE;
 
 
-$diasHabiles = 0;
+ $diasHabiles = 0;
 
 
 if($diffYears == 0){
@@ -92,7 +93,6 @@ elseif ($diffYears >= 25) {
 }else{
     echo "Error";
 }
-
 ?>
 
 <div class="alert alert-success text-center" role="alert">
@@ -125,6 +125,7 @@ elseif ($diffYears >= 25) {
             <div class="container">
                 <div class="row clearfix">
                     <div class="col-md-12 table-responsive">
+                        <input type="text" hidden="hidden" id="diasHabiles" value="{{$diasHabiles}}">
                         <table class="table table-bordered table-hover table-sortable" id="tab_logic">
                             <thead class="table-dark" style="background-color:rgb(42, 122, 5)">
                                 <tr >
@@ -163,8 +164,8 @@ elseif ($diffYears >= 25) {
                                         <input type="date" class="form-control" name="FechaInicio" id="FechaInicio" value="" Onchange="var diasPas = diasPasados();">
                                     </td>
                                     <td>
-                                        <input type="date" class="form-control" name="FechaFin" id="FechaFin" class="FechaFin" value=""  Onchange="var diasDif = myFunction();
-                                        if(diasDif >= {{$diasHabiles}}){alert('No se pueden agendar más de los permitidos')}else{alert('!Los días que elegiste están disponibles!')}">
+                                        <input type="date" class="form-control" name="FechaFin" id="FechaFin" class="FechaFin" value=""  Onchange="var diasDif = myFunction(); console.log(diasDif);
+                                        if(diasDif <= {{$diasHabiles}}){alert('!Los días que elegiste están disponibles!')}else{alert('No puedes elegir más días de los correspondientes')}">
                                     </td>
                                     <td>
                                         <textarea name="Descripcion" placeholder="Description" class="form-control" id="Descripcion"></textarea>
