@@ -93,6 +93,18 @@ elseif ($diffYears >= 25) {
 }else{
     echo "Error";
 }
+
+$agendarTiempoFin = \Carbon\Carbon::now()->format('d-m-Y');
+$ano = \Carbon\Carbon::now()->format('Y');
+$dia = "15-12-";
+$disabled = 'enabled';
+for($a=0; $a<=15; $a++){
+    $diaR = $a."-12-".$ano;
+    if($agendarTiempoFin.$ano != $diaR){
+          $disabled = 'disabled';
+          break;
+}
+}
 ?>
 
 <div class="alert alert-success text-center" role="alert">
