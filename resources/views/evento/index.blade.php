@@ -6,17 +6,21 @@
 @extends('adminlte::page')
 <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
 @section('title', 'SIPSUTERMCFE')
-{{-- 
+{{--
 <?php echo Carbon\Carbon::parse(DB::table('eventos')->find(1)->created_at)->toCookieString(); ?>  --}}
 
 @section('content_header')
-@foreach($eventos as $evento)
+
+
+@foreach($almacenados as $almacenado)
   <table>
-  <tr>
-  <td>{{ $evento->title }}</td>
-  <td>{{ $evento->descripcion }}</td>
-  <td> {{\Carbon\Carbon::parse($evento->start)->format('d/m/Y')}} </td>
-  <td>  {{\Carbon\Carbon::parse($evento->end)->format('d/m/Y')}}  </td>
+      <tr>
+      <td><input type="text" hidden="hidden" id="idSolic" value="{{$almacenado->id}}"></td>
+      <td><input type="text" hidden="hidden" id="RPESolic" value="{{$almacenado->RPE}}"></td>
+      <td><input type="text" hidden="hidden" id="nombreSolic" value="{{$almacenado->Nombre}}"></td>
+      <td><input type="text" hidden="hidden" id="descSolic" value="{{$almacenado->Descripcion}}"></td>
+      <td><input type="text" hidden="hidden" id="oculto" value="{{$almacenado->FechaInicio}}"></td>
+      <td><input type="text" hidden="hidden" id="oculto2" value="{{$almacenado->FechaFin}}"></td>
   </tr>
 </table>
   @endforeach
@@ -26,14 +30,15 @@
 
 
 
-
-
-    
-
 <div class="container">
     <div id="agenda">
     </div>
 </div>
+
+
+
+
+
 
 
 <!-- Modal -->
@@ -47,7 +52,7 @@
                     </button>
             </div>
             <div class="modal-body">
-                
+
 
             <form action="" id="formularioEventos">
 
@@ -94,7 +99,7 @@
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
 
 
-                
+
             </div>
         </div>
     </div>
