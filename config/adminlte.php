@@ -359,6 +359,10 @@ return [
                                     'text' => 'Imprimir formato',
                                     'url' => '#',
                                 ],
+                                [
+                                    'text' => 'Administrar vacaciones',
+                                    'url' => 'registro',
+                                ],
                             ],
                         ],
                         [

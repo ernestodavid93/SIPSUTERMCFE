@@ -30,10 +30,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-/*
-Route::get('/solicitud', function () {
-    return view('solicitud.index');
-});*/
+
+Route::get('/registro', function () {
+    return view('registro.index');
+});
 
 Route::get('/solicitud', [SolicitudController::class, 'index']);
 Route::post('/solicitud', [SolicitudController::class, 'store'])->name('solicitud.store');
