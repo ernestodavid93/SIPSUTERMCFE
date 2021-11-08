@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\DiaFeriado;
 
-class RegistroController extends Controller
+class DiaFeriadoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,8 @@ class RegistroController extends Controller
      */
     public function index()
     {
-        //
+        $diaferiado = DiaFeriado::all(); //Obtenemos todos los dias
+        return view('diaferiado.index', compact('diaferiado')); //Que nos retorne la vista con el parametro de diasferiado
     }
 
     /**
@@ -35,7 +37,14 @@ class RegistroController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $feriado = new DiaFeriado();
+
+        $feriado->Nombre = $request->input('Nombre');
+        $feriado->Fecha = $request->input('Fecha');
+
+        $feriado->save();
+
+        return back()->with('mensaje', 'El dia feriado se almaceno correctamente');
     }
 
     /**
@@ -57,7 +66,9 @@ class RegistroController extends Controller
      */
     public function edit($id)
     {
-        //
+        $diaferiado = DiaFeriado::find($id);
+
+        return view('diaferiado.edit', compact('diaferiado'));
     }
 
     /**
@@ -69,7 +80,10 @@ class RegistroController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $diaferiado = DiaFeriado::find($id);
+        $diaferiado->update($request->all());
+
+        return redirect()->route('diaferiado.index');
     }
 
     /**
@@ -80,6 +94,10 @@ class RegistroController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $diaferiado = DiaFeriado::find($id);
+
+        $diaferiado->delete();
+
+        return back();
     }
 }

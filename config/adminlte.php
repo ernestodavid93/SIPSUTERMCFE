@@ -360,8 +360,13 @@ return [
                                     'url' => '#',
                                 ],
                                 [
-                                    'text' => 'Administrar vacaciones',
+                                    'text' => 'Administrar periodos vacacionales',
                                     'url' => 'registro',
+                                ],
+
+                                [
+                                    'text' => 'Administrar dias feriados',
+                                    'url' => 'diaferiado',
                                 ],
                             ],
                         ],

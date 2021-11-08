@@ -14,11 +14,11 @@
 
 
 @section('title', 'SIPSUTERMCFE')
-<h1>Administracion de Peridos Vacacionales</h1><br/>
-<p><strong>Ingresa el periodo que deseas activar para el registro de vacaciones</strong></p>
+<h1>Administracion de dias feriados</h1><br/>
 
-<form action="" method="post">
+<form action="{{route('diaferiado.update', $diaferiado->id)}}" method="post">
     @csrf
+    @method('put')
     <div class="card">
         <div class="card-body">
             <div class="container">
@@ -28,22 +28,24 @@
                             <thead class="table-dark" style="background-color:rgb(42, 122, 5)">
                                 <tr >
                                     <th class="text-center">
-                                        Inicio
+                                        Nombre
                                     </th>
                                     <th class="text-center">
-                                        Fin
+                                        Fecha
                                     </th>
-                                
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>
-                                        <input type="date" name="inicio" id="inicio">
+                                        <label for="">Nombre:</label>
+                                        <input type="text" name="Nombre" id="Nombre" value="{{$diaferiado->Nombre}}">
                                     </td>
                                     <td>
-                                        <input type="date" name="fin" id="fin">
+                                        <label for="">Fecha:</label>
+                                        <input type="date" name="Fecha" id="Fecha" value="{{$diaferiado->Fecha}}"">
                                     </td>
+                                    
                                 </tr>
                             </tbody>
                         </table>
@@ -55,9 +57,6 @@
     </div>
 
 </form>
-
-
-
 
 
 @endsection

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CapacitacionController;
+use App\Http\Controllers\DiaFeriadoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\DireccionController;
@@ -37,6 +38,13 @@ Route::get('/registro', function () {
 
 Route::get('/solicitud', [SolicitudController::class, 'index']);
 Route::post('/solicitud', [SolicitudController::class, 'store'])->name('solicitud.store');
+
+//Ruta para los dias feriados
+Route::get('diaferiado', [DiaFeriadoController::class, 'index'])->name('diaferiado.index');
+
+Route::post('diaferiado', [DiaFeriadoController::class, 'store'])->name('diaferiado.store');
+
+Route::resource('diaferiado', DiaFeriadoController::class);
 
 /*Route::get('/usuario', function () {
     return view('usuario.index');
