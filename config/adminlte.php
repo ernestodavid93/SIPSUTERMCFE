@@ -357,7 +357,7 @@ return [
                                 ],
                                 [
                                     'text' => 'Imprimir formato',
-                                    'url' => '#',
+                                    'url' => 'formato',
                                 ],
                                 [
                                     'text' => 'Administrar periodos vacacionales',
