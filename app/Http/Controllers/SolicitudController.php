@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\SolicitudExport;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Auth\LoginController;
@@ -16,6 +17,7 @@ use App\Models\Solicitud;
 
 
 use Carbon\Carbon;
+use Maatwebsite\Excel\Facades\Excel;
 
 class SolicitudController extends Controller
 {
@@ -75,6 +77,11 @@ class SolicitudController extends Controller
     return view('solicitud.index');
 }
 
+    public function export()
+{
+
+    return Excel::download(new SolicitudExport, 'solicitud.xlsx');
+}
     /**
      * Store a newly created resource in storage.
      *

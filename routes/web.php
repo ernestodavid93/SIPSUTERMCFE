@@ -5,6 +5,7 @@ use App\Http\Controllers\DiaFeriadoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\DireccionController;
+use App\Http\Controllers\ExportController;
 use App\Http\Controllers\SolicitudController;
 use App\Http\Controllers\VacacionesController;
 
@@ -50,6 +51,12 @@ Route::resource('diaferiado', DiaFeriadoController::class);
 Route::resource('vacaciones', VacacionesController::class);
 Route::get('vacaciones', [VacacionesController::class, 'index'])->name('vacaciones.index');
 Route::post('vacaciones/{id}', [VacacionesController::class, 'show'])->name('vacaciones.show');
+
+
+//Ruta para el generar excel
+Route::get('formato', [ExportController::class, 'index']);
+
+Route::get('formato/excel', [SolicitudController::class, 'export'])->name('formato.export');
 
 /*Route::get('/usuario', function () {
     return view('usuario.index');
