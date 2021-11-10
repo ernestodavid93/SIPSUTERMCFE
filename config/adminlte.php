@@ -250,8 +250,8 @@ return [
             'icon' => 'fas fa-fw fa-unlock',
             'submenu' => [
                 [
-                    'text' => 'Capturar días',
-                    'url' => '#',
+                    'text' => 'Autorización vacaciones',
+                    'url' => 'vacaciones',
                 ],
             ]
         ],

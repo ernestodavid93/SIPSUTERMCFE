@@ -54,6 +54,7 @@ return array(
     'App\\Models\\Role' => $baseDir . '/app/Models/Role.php',
     'App\\Models\\Solicitud' => $baseDir . '/app/Models/Solicitud.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
+    'App\\Models\\Vacaciones' => $baseDir . '/app/Models/Vacaciones.php',
     'App\\Models\\Zona' => $baseDir . '/app/Models/Zona.php',
     'App\\Models\\calendarioCursos' => $baseDir . '/app/Models/calendarioCursos.php',
     'App\\Models\\calendarioPermiso' => $baseDir . '/app/Models/calendarioPermiso.php',

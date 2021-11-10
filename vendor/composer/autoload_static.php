@@ -587,6 +587,7 @@ class ComposerStaticInitb02244332b25177b2e3c13c4885271d5
         'App\\Models\\Role' => __DIR__ . '/../..' . '/app/Models/Role.php',
         'App\\Models\\Solicitud' => __DIR__ . '/../..' . '/app/Models/Solicitud.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
+        'App\\Models\\Vacaciones' => __DIR__ . '/../..' . '/app/Models/Vacaciones.php',
         'App\\Models\\Zona' => __DIR__ . '/../..' . '/app/Models/Zona.php',
         'App\\Models\\calendarioCursos' => __DIR__ . '/../..' . '/app/Models/calendarioCursos.php',
         'App\\Models\\calendarioPermiso' => __DIR__ . '/../..' . '/app/Models/calendarioPermiso.php',

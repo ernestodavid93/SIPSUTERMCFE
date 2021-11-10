@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\DireccionController;
 use App\Http\Controllers\SolicitudController;
-
+use App\Http\Controllers\VacacionesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +45,11 @@ Route::get('diaferiado', [DiaFeriadoController::class, 'index'])->name('diaferia
 Route::post('diaferiado', [DiaFeriadoController::class, 'store'])->name('diaferiado.store');
 
 Route::resource('diaferiado', DiaFeriadoController::class);
+
+
+Route::resource('vacaciones', VacacionesController::class);
+Route::get('vacaciones', [VacacionesController::class, 'index'])->name('vacaciones.index');
+Route::post('vacaciones/{id}', [VacacionesController::class, 'show'])->name('vacaciones.show');
 
 /*Route::get('/usuario', function () {
     return view('usuario.index');
