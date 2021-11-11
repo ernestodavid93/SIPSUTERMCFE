@@ -44,7 +44,7 @@ class VacacionesController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -55,7 +55,7 @@ class VacacionesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -69,9 +69,9 @@ class VacacionesController extends Controller
 
         /////SI SECRETARIO
 
-        $encontrar = Vacaciones::find($id);
+       // $encontrar = Vacaciones::find($id);
 
-        return view('vacaciones.show', compact('encontrar'));
+        //return view('vacaciones.show', compact('encontrar'));
 
          //SI JEFE DE LUGAR DE TRABAJO
     }
@@ -79,34 +79,53 @@ class VacacionesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Vacaciones  $vacaciones
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Vacaciones $vacaciones)
+    public function edit($id)
     {
         //
+        $vacacionesAux = Vacaciones::find($id);
+
+        return view('vacaciones.index', compact('vacacionesAux'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Vacaciones  $vacaciones
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Vacaciones $vacaciones)
+    public function update(Request $request, $id)
     {
-        //
+        $vacaciones = Vacaciones::find($id);
+        //$vacaciones->update($request->all());
+        $vacaciones->RPE = $request->RPE;
+        $vacaciones->Nombre = $request->Nombre;
+        $vacaciones->Descripcion = $request->Descripcion;
+        $vacaciones->FechaInicio = $request->FechaInicio;
+        $vacaciones->FechaFin = $request->FechaFin;
+        $vacaciones->autoriza_sec = '1';
+        //$vacaciones->autoriza_jefe = '1';
+
+        $vacaciones->save();
+        //return redirect()->route('vacaciones.index');
+        return redirect()->route('vacaciones.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Vacaciones  $vacaciones
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Vacaciones $vacaciones)
+    public function destroy($id)
     {
-        //
+        $vacaciones = Vacaciones::find($id);
+
+        $vacaciones->delete();
+
+        return back();
     }
 }

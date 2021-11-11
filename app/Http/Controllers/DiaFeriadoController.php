@@ -83,6 +83,8 @@ class DiaFeriadoController extends Controller
         $diaferiado = DiaFeriado::find($id);
         $diaferiado->update($request->all());
 
+
+
         return redirect()->route('diaferiado.index');
     }
 

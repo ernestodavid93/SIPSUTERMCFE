@@ -50,7 +50,8 @@ Route::resource('diaferiado', DiaFeriadoController::class);
 
 Route::resource('vacaciones', VacacionesController::class);
 Route::get('vacaciones', [VacacionesController::class, 'index'])->name('vacaciones.index');
-Route::post('vacaciones/{id}', [VacacionesController::class, 'show'])->name('vacaciones.show');
+Route::post('vacaciones/{id}', [VacacionesController::class, 'update'])->name('vacaciones.update');
+//Route::post('vacaciones/{id}', [VacacionesController::class, 'edit'])->name('vacaciones.index');
 
 
 //Ruta para el generar excel
