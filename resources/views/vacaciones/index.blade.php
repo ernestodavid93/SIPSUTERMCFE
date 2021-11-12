@@ -67,6 +67,8 @@
         <td id="FechaInicio">{{\Carbon\Carbon::parse($validacion->FechaInicio)->format('d/m/Y')}}</td>
             <input type="text" name="FechaFin" id="FechaFin" value="{{$validacion->FechaFin}}" hidden="true">
         <td id="FechaFin">{{\Carbon\Carbon::parse($validacion->FechaFin)->format('d/m/Y')}}</td>
+            <input type="text" name="autoriza_email" id="autoriza_email" value="{{$user->email}}" hidden="true">
+
 
             <td><button class="btn btn-sm btn-success justify-content-between">Autorizar</button></td>
         {{--<td><a href="{{ route('vacaciones.update', $validacion->id)}}" class="btn btn-success justify-content-between">Autorizar</a></td>
@@ -82,6 +84,7 @@
             <input type="text" name="Descripcion" id="Descripcion" value="{{$validacion->Descripcion}}" hidden="true">
             <input type="text" name="FechaInicio" id="FechaInicio" value="{{$validacion->FechaInicio}}" hidden="true">
             <input type="text" name="FechaFin" id="FechaFin" value="{{$validacion->FechaFin}}" hidden="true">
+            <input type="text" name="autoriza_email" id="autoriza_email" value="{{$user->email}}" hidden="true">
             <td><button class="btn btn-sm btn-danger row justify-content-between">Eliminar</button></td>
         </form>
     </tr>
@@ -125,7 +128,14 @@
                <td>{{$validacion->Descripcion}}</td>
                <td>{{\Carbon\Carbon::parse($validacion->FechaInicio)->format('d/m/Y')}}</td>
                <td>{{\Carbon\Carbon::parse($validacion->FechaFin)->format('d/m/Y')}}</td>
-               <td>Nombre secretario</td>
+               @foreach ($relacion_sec as $object)
+                   @if($solicitud->CorreoElectronico == $object->correoelectronico )
+                       <td>{{$object->nombre}} {{$object->apellidopaterno}} {{$object->apellidomaterno}}</td>
+                       @break
+                   @endif
+               @endforeach
+
+
            </tr>
        @endif
     @endforeach
@@ -165,7 +175,12 @@
                 <td>{{$validacion->Descripcion}}</td>
                 <td>{{\Carbon\Carbon::parse($validacion->FechaInicio)->format('d/m/Y')}}</td>
                 <td>{{\Carbon\Carbon::parse($validacion->FechaFin)->format('d/m/Y')}}</td>
-                <td>Nombre jefe lugar trabajo</td>
+                @foreach ($relacion_jefe as $object2)
+                    @if($solicitud->CorreoElectronico == $object2->email )
+                        <td>{{$object2->Nombre}} {{$object2->ApellidoPaterno}} {{$object2->ApellidoMaterno}}</td>
+                        @break
+                    @endif
+                @endforeach
             </tr>
         @endif
     @endforeach

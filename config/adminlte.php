@@ -248,7 +248,7 @@ return [
             'text' => 'Administración',
             'url'  => '#',
             'icon' => 'fas fa-fw fa-unlock',
-            'can' => 'admin.users.index',
+            //'can' => 'admin.users.index',
             'submenu' => [
                 [
                     'text' => 'Autorización vacaciones',

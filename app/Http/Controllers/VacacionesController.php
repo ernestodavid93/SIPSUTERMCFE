@@ -33,8 +33,24 @@ class VacacionesController extends Controller
 
         $validaciones = Vacaciones::all();
         $nombres = DB::table('empleados')->join('solicitudes','empleados.RPE', '=', 'solicitudes.RPE')->select('empleados.*')->get()->all();
+        $relacion_sec = DB::table("empleados")
+            ->join("solicitudes", function($join){
+                $join->on("empleados.correoelectronico", "=", "solicitudes.autoriza_email");
+            })
+            ->select("empleados.nombre", "empleados.apellidopaterno", "empleados.apellidomaterno", "empleados.correoelectronico")
+            ->get();
 
-        return view('vacaciones.index',compact('validaciones', 'nombres'));
+        $relacion_jefe = DB::table("empleados")
+            ->join("users", function($join){
+                $join->on("empleados.correoelectronico", "=", "users.email");
+            })
+            ->join("model_has_roles", function($join){
+                $join->on("users.id", "=", "model_has_roles.model_id")
+                    ->where("model_has_roles.role_id", "=", 3);
+            })
+            ->get();
+
+        return view('vacaciones.index',compact('user','validaciones', 'nombres','solicitud', 'relacion_sec','relacion_jefe'));
     }
 
     /**
@@ -108,6 +124,7 @@ class VacacionesController extends Controller
         $vacaciones->FechaFin = $request->FechaFin;
         $vacaciones->autoriza_sec = '1';
         //$vacaciones->autoriza_jefe = '1';
+        $vacaciones->autoriza_email = $request->autoriza_email;
 
         $vacaciones->save();
         //return redirect()->route('vacaciones.index');
