@@ -15,6 +15,7 @@ class CreateSolicitudesTable extends Migration
     {
         Schema::create('solicitudes', function (Blueprint $table) {
             $table->id();
+            $table->string('RPE');
             $table->string('Nombre');
             $table->text('Descripcion');
             $table->date('FechaInicio');

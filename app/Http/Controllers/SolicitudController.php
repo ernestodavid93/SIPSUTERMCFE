@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\SolicitudExport;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Auth\LoginController;
@@ -16,6 +17,7 @@ use App\Models\Solicitud;
 
 
 use Carbon\Carbon;
+use Maatwebsite\Excel\Facades\Excel;
 
 class SolicitudController extends Controller
 {
@@ -75,6 +77,11 @@ class SolicitudController extends Controller
     return view('solicitud.index');
 }
 
+    public function export()
+{
+
+    return Excel::download(new SolicitudExport, 'solicitud.xlsx');
+}
     /**
      * Store a newly created resource in storage.
      *
@@ -83,46 +90,50 @@ class SolicitudController extends Controller
      */
     public function store(Request $request)
     {
-        /*
-        
-        $campos = [
-            'Nombre' => 'required|string',
-            'Descripcion' => 'required|text',
-            'FechaInicio' => 'required|date',
-            'FechaFin' => 'required|date',
-        ];
-
-        $mensaje = [
-            'required'=>'El :attribute es requerido',
-            'FechaInicio.required'=>'La fecha de inicio es requerida',
-            'FechaFin.required'=>'La fecha de fin es requerida',
-        ]; 
-        
+ /*
+        $solicitudVacaciones = Solicitud::whereBetween('FechaInicio', ['FechaInicio','FechaFin'])->where()->count();
+       $solicitudVacaciones += Solicitud::whereBetween('FechaFin', ['FechaInicio','FechaFin'])->count() ;
+        $totalEmpleado = Solicitud::query()->join('empleados','solicitudes.RPE','=','empleados.RPE')
+        ->join('cat__lugar__de__trabajo__empleados','empleados.id','=','cat__lugar__de__trabajo__empleados.Id_empleado_F')
+        ->count();
+        $porcentaje = (25*$totalEmpleado)/100;
+        return dd($solicitudVacaciones);
         */
-
-        //$this->validate($request, $campos, $mensaje);
-
-        //$datosdesolicitud = request()->all();
-        //$datosdesolicitud = request()->except('_token');
-
-        //Solicitud::insert($datosdesolicitud);
-
-        //return response()->json($datosdesolicitud);
-       
-        
-        
-        
          $solicitud = new Solicitud();
-         $solicitud->Nombre = $request->Nombre;
-         $solicitud->Descripcion = $request->Descripcion;
-         $solicitud->FechaInicio = $request->FechaInicio;
-         $solicitud->FechaFin = $request->FechaFin;
-          
-         $solicitud->save();
-         
-         
+         $solicitud->RPE = $request->input("RPE");
+         $solicitud->Nombre = $request->input('Nombre');
+         $solicitud->Descripcion = $request->input('Descripcion');
+         $solicitud->FechaInicio = $request->input('FechaInicio');
+         $solicitud->FechaFin = $request->input('FechaFin');
+        //$solicitud->autoriza_sec = $request->input('AutorizaSec');
+        //$solicitud->autoriza_jefe = $request->input('AutorizaJefe');
 
+         $solicitud->save();
          return back()->with('mensaje', 'La solicitud se almaceno correctamente');
+         //return dd($solicitud);
+
+        /* $solicitud2 = new Solicitud();
+         $solicitud2->FechaInicio = $request->FechaInicio;
+         $solicitud2->FechaFin = $request->FechaFin;
+         $solicitudVacaciones = Solicitud::whereBetween('FechaInicio', [ $solicitud2->FechaInicio,  $solicitud2->FechaFin])->count();
+         $solicitudVacaciones += Solicitud::whereBetween('FechaFin', [ $solicitud2->FechaInicio,  $solicitud2->FechaFin])->count();
+         if($solicitudVacaciones!=0){
+             return back()->with('mensaje', 'Los dias que solicitaste no estan disponibles');
+         }
+         else if($solicitudVacaciones==0){
+            $solicitud->save();
+            return back()->with('mensaje', 'La solicitud se almaceno correctamente');
+         }
+        else{
+            return back()->with('mensaje', 'error inesperado');
+        }*/
+
+        /*$FechaInicio = Carbon::parse($req->input('FechaInicio'));
+        $FechaFin = Carbon::parse($req->input('FechaFin'));
+
+        $diasDiferencia = $FechaFin->diffInDays($FechaInicio);*/
+
+
     }
 
     /**

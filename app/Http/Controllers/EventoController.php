@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Empleado;
 use App\Models\Evento;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class EventoController extends Controller
 {
@@ -16,10 +18,21 @@ class EventoController extends Controller
      */
     public function index()
     {
-        $eventos = \DB::table('eventos')
+
+        $user = Auth::user();
+
+
+        $result = Empleado::query()->where('CorreoElectronico','=',$user->email)
+            // ->select('*')->where('RPE','=','TF567')
+            ->first();
+        /*$eventos = \DB::table('eventos')
         ->select('title','descripcion','start','end')
         ->get();
-        return view('evento.index')->with('eventos',$eventos);
+        return view('evento.index')->with('eventos',$eventos);*/
+        $almacenados = \DB::table('solicitudes')
+           ->select('id','RPE','Nombre','Descripcion','FechaInicio','FechaFin')->where('RPE','=',$result->RPE)
+           ->get();
+       return view('evento.index')->with('almacenados',$almacenados);
     }
 
     /**
@@ -29,7 +42,10 @@ class EventoController extends Controller
      */
     public function create()
     {
-        //
+        /*$almacenados = \DB::table('solicitudes')
+            ->select('id','RPE','Nombre','Descripcion','FechaInicio','FechaFin')
+            ->get();
+        return view('evento.index')->with('solicitudes',$almacenados);*/
     }
 
     /**

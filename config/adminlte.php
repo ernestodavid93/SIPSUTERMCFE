@@ -45,12 +45,12 @@ return [
     |
     */
 
-    'logo' => '<b>SIPSUTERMCFE</b>',
+    'logo' => '<b>SIVA</b>',
     'logo_img' => '/vendor/adminlte/dist/img/cfe_logo.png',
-    'logo_img_class' => 'brand-image img-circle elevation-3',
-    'logo_img_xl' => null,
-    'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'AdminLTE',
+    'logo_img_class' => 'brand-image img-circle elevation-1 ',
+    //'logo_img_xl' => '',
+    //'logo_img_xl_class' => 'brand-image-xl logo-xl',
+    'logo_img_alt' => 'SIVA',
 
     /*
     |--------------------------------------------------------------------------
@@ -248,14 +248,19 @@ return [
             'text' => 'Administración',
             'url'  => '#',
             'icon' => 'fas fa-fw fa-unlock',
+            //'can' => 'admin.users.index',
             'submenu' => [
                 [
-                    'text' => 'Capturar días',
-                    'url' => '#',
+                    'text' => 'Autorización vacaciones',
+                    'url' => 'vacaciones',
+                ],
+                [
+                    'text' => 'Asignar roles',
+                    'url' => 'admin/users',
                 ],
             ]
         ],
-   
+
                 /*[
                     'text' => 'Usuario',
                     'url'  => '#',
@@ -282,7 +287,7 @@ return [
                         'text' => 'Buzón de sugerencias',
                         'url' => '#',
                     ],
-                ],   
+                ],
             ],*/
             [
                 'text' => 'Empleados',
@@ -297,7 +302,7 @@ return [
                     'text' => 'Baja',
                     'url' => 'empleado/baja',
                 ],
-            ],   
+            ],
         ],
         // [
         //     'text' => 'Registro de asistencias',
@@ -336,7 +341,7 @@ return [
         //             ],
         //         ],
         //     ],
-        // ],   
+        // ],
         // ] ,
         [
             'text' => 'Servicios',
@@ -351,13 +356,22 @@ return [
                                     'text' => 'Solicitar vacaciones',
                                     'url' => 'solicitud',
                                 ],
-                                [   
+                                [
                                     'text' => 'Consultar vacaciones',
                                     'url' => 'evento',
                                 ],
                                 [
                                     'text' => 'Imprimir formato',
-                                    'url' => '#',
+                                    'url' => 'formato',
+                                ],
+                                [
+                                    'text' => 'Administrar periodos vacacionales',
+                                    'url' => 'registro',
+                                ],
+
+                                [
+                                    'text' => 'Administrar dias feriados',
+                                    'url' => 'diaferiado',
                                 ],
                             ],
                         ],
@@ -369,7 +383,7 @@ return [
                 'text' => 'Buzón de sugerencias',
                 'url' => '#',
             ],
-        ],   
+        ],
     ],
    /* [
         'text' => 'Capacitacion',
@@ -388,11 +402,11 @@ return [
             'text' => 'Calificaciones',
             'url' => '#',
         ],
-    ],   
+    ],
 ],*/
 [
     'text' => 'Centros de trabajo',
-    'url'  => '#', 
+    'url'  => '#',
     'icon' => 'fas fa-fw fa-wrench',
 ],
 //[
@@ -416,7 +430,7 @@ return [
 //         'text' => 'Festivos',
 //         'url' => '#',
 //     ],
-// ],   
+// ],
 //],
 // [
 //     'text' => 'Servicio Social',
@@ -430,19 +444,19 @@ return [
 //         'text' => 'Constancias',
 //         'url' => '#',
 //     ],
-// ],   
+// ],
 // ],
 // [
 //     'text' => 'Encuestas',
-//     'url'  => '#', 
+//     'url'  => '#',
 // ],
 // [
 //     'text' => 'Reportes',
-//     'url'  => '#', 
+//     'url'  => '#',
 // ],
 // [
 //     'text' => 'Solicitud de documentos',
-//     'url'  => '#', 
+//     'url'  => '#',
 // ],
 
 
