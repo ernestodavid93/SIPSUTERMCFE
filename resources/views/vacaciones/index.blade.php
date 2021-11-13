@@ -129,7 +129,7 @@
                <td>{{\Carbon\Carbon::parse($validacion->FechaInicio)->format('d/m/Y')}}</td>
                <td>{{\Carbon\Carbon::parse($validacion->FechaFin)->format('d/m/Y')}}</td>
                @foreach ($relacion_sec as $object)
-                   @if($solicitud->CorreoElectronico == $object->correoelectronico )
+                   @if($validacion->autoriza_email == $object->correoelectronico )
                        <td>{{$object->nombre}} {{$object->apellidopaterno}} {{$object->apellidomaterno}}</td>
                        @break
                    @endif
@@ -176,8 +176,8 @@
                 <td>{{\Carbon\Carbon::parse($validacion->FechaInicio)->format('d/m/Y')}}</td>
                 <td>{{\Carbon\Carbon::parse($validacion->FechaFin)->format('d/m/Y')}}</td>
                 @foreach ($relacion_jefe as $object2)
-                    @if($solicitud->CorreoElectronico == $object2->email )
-                        <td>{{$object2->Nombre}} {{$object2->ApellidoPaterno}} {{$object2->ApellidoMaterno}}</td>
+                    @if($validacion->autoriza_email == $object2->correoelectronico )
+                        <td>{{$object2->nombre}} {{$object2->apellidopaterno}} {{$object2->apellidomaterno}}</td>
                         @break
                     @endif
                 @endforeach
